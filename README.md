@@ -4,3 +4,4 @@ Standalone docker-compose, app and default configs for deploying self-service-ap
 This Repo contains example configurations that REQUIRE CHANGES
 Please copy the contents of app/config_template to app/config directory. Be sure to go through each config.
 The sections in settings.py that need to be adjust are labelled with #CHANGEME
+Copy the .env.template files to .envs and update the variable values as needed
