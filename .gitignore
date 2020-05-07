@@ -1,0 +1,5 @@
+*.env
+id_rsa*
+
+app/config/*
+!app/config_template/*

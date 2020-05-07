@@ -1,0 +1,49 @@
+version: "3"
+services:
+  nginx:
+    build: ./nginx
+    restart: unless-stopped
+    container_name: selfserve_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - static:/opt/self-service/static
+    depends:
+      - web
+    networks:
+      - net
+  web:
+    build: ./app
+    restart: unless-stopped
+    container_name: selfserve_web
+    user: "2772:2772"
+    env_file:
+      - ./app/db.env
+      - ./app/django_envvars.env
+    expose:
+      - 8000
+    volumes:
+      - static:/static
+      - ./app/config:/config
+    depends:
+      - postgres
+    networks:
+      - net
+  postgres:
+    image: postgres
+    restart: unless-stopped
+    env_file:
+      - db.env
+    expose:
+      - 5432
+    volumes:
+      - "postgresdb:/var/lib/postgresql/data"
+    networks:
+      - net
+
+volumes:
+  static:
+  postgresdb:
+ 
+networks:
+  net:
