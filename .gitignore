@@ -3,6 +3,7 @@
 id_rsa*
 
 app/config/*
+!app/config/README.md
 !app/config_template/*
 
 nginx/ssl/*
