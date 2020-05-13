@@ -1,5 +1,10 @@
 *.env
+!*.template.env
 id_rsa*
 
 app/config/*
 !app/config_template/*
+
+nginx/ssl/*
+!nginx/ssl/README.md
+

@@ -14,9 +14,7 @@ USER django-server
 COPY --chown=django-server:django-server id_rsa /home/django-server/git_ssh
 RUN eval $(ssh-agent) &&\
     ssh-add /home/django-server/git_ssh && \
-    git clone --recursive git@github.com:geoteo/dt-self-service.git /opt/self-service &&\
-    cd /opt/self-service &&\
-    git checkout -b docker --track origin/SELFSERVE-19_feature &&\
+    git clone --recursive git@github.com:dt-self-service/self-service-app /opt/self-service &&\
     cd /opt/self-service &&\
     cat Pipfile &&\
     pipenv install

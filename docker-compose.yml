@@ -6,9 +6,11 @@ services:
     container_name: selfserve_nginx
     ports:
       - "8080:80"
+      - "8443:443"
     volumes:
       - static:/opt/self-service/static
-    depends:
+      - ./nginx/ssl:/ssl
+    depends_on:
       - web
     networks:
       - net
@@ -19,13 +21,13 @@ services:
     user: "2772:2772"
     env_file:
       - ./app/db.env
-      - ./app/django_envvars.env
+      - ./app/django.env
     expose:
       - 8000
     volumes:
       - static:/static
       - ./app/config:/config
-    depends:
+    depends_on:
       - postgres
     networks:
       - net
