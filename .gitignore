@@ -7,5 +7,6 @@ app/config/*
 !app/config_template/*
 
 nginx/ssl/*
+nginx/nginx.conf
 !nginx/ssl/README.md
 
