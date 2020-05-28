@@ -1,7 +1,4 @@
 # self-service-docker
-
-
-# self-service-docker
 > Standalone docker-compose, app and default configs for deploying self-service-app with nginx and postgres.
 
 This repo contains an example configuration that **REQUIRE CHANGES**.
