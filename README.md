@@ -20,9 +20,9 @@ Copy the .env.template files to .envs and update the variable values as needed.
 Add more general information about project. What the purpose of the project is? Motivation?
 
 ## Screenshots
-![Login](./screenshots/login.png)
-![Dashboard](./screenshots/dashboard.png)
-![Create Maintenance Window](./screenshots/create-mwindow.png)
+![Login](https://github.com/dt-self-service/self-service-app/blob/master/screenshots/login.PNG)
+![Dashboard](https://github.com/dt-self-service/self-service-app/blob/master/screenshots/dashboard.PNG)
+![Create Maintenance Window](https://github.com/dt-self-service/self-service-app/blob/master/screenshots/create-mwindow.PNG)
 
 ## Technologies
 * Python 3.8+
