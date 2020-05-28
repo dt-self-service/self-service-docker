@@ -1,11 +1,6 @@
 # self-service-docker
 > Standalone docker-compose, app and default configs for deploying self-service-app with nginx and postgres.
 
-This repo contains an example configuration that **REQUIRE CHANGES**.
-Please copy the contents of app/config_template to app/config directory. Be sure to go through each config.
-The sections in settings.py that need to be adjust are labelled with #CHANGEME.
-Copy the .env.template files to .envs and update the variable values as needed.
-
 ## Table of contents
 * [General info](#general-info)
 * [Screenshots](#screenshots)
@@ -17,7 +12,10 @@ Copy the .env.template files to .envs and update the variable values as needed.
 * [Contact](#contact)
 
 ## General info
-Add more general information about project. What the purpose of the project is? Motivation?
+This repo contains an example configuration that **REQUIRE CHANGES**.
+Please copy the contents of app/config_template to app/config directory. Be sure to go through each config.
+The sections in settings.py that need to be adjust are labelled with #CHANGEME.
+Copy the .env.template files to .envs and update the variable values as needed.
 
 ## Screenshots
 ![Login](https://github.com/dt-self-service/self-service-app/blob/master/screenshots/login.PNG)
