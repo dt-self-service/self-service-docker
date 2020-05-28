@@ -43,7 +43,7 @@ Copy the .env.template files to .envs and update the variable values as needed.
 
 > `cd self-service-docker/app/`
 
-3. Edit django.template.env using your favorite editor to configure admin and host and save it as django.env:
+3. Edit django.template.env using your favorite editor to configure admin and host and save it as django.env. If SMTP is used, the corresponding settings should be uncommented and assigned values here:
 
 > `vim django.template.env`
 
@@ -55,29 +55,41 @@ Copy the .env.template files to .envs and update the variable values as needed.
 
 > `:wq! db.env`
 
-5. Switch into the config_template directory and edit user_variables.py to connect to your Dynatrace environment:
+5. Copy everything in this folder into ../config
 
-> `cd config_template`
+> `cp -r config_template config`
+
+6. Switch into the config directory and edit user_variables.py to connect to your Dynatrace environment:
+
+> `cd config`
 
 > `vim user_variables.py`
 
-6. Edit settings.py to configure SMTP settings at the bottom of the file:
+7. *OPTIONAL: Configuring SSO - Switch into the saml folder and configure SAML inside settings.json. Cert and Key files for the SP (This App) go into the $PROJECT_ROOT/app/config/cert directory as "sp.crt" and "sp.key", respectively.*
 
-> `vim settings.py`
+8. Navigate to the root of the project and enter the nginx directory
 
-7. Copy everything in this folder into ../config
+9. Copy nginx.template.conf to nginx.conf
 
-> `cp -r * ../config`
+> `cp nginx.template.conf nginx.conf`
 
-8. *OPTIONAL: Configuring SSO - Switch into the config folder and configure SAML inside settings.json*
+10. Open nginx.conf for editing to search and replace "www.example.com" with the correct url. For example in vim:
 
-9. Switch back to the root of the project and start the services using docker-compose:
+> `%s/www.example.conf/<application_url_here>/g`
+
+11. Edit nginx.conf port 80 block to redirect to the published port and then close the file
+
+> `return 302 https://www.example.com;` to `return 302 https://www.example.com:8443`;
+
+12. *OPTIONAL: To use your own certs instead of a Self-Signed, add the cert and key as cert.pem and key.pem, repectively, in the folder $PROJECT_ROOT/nginx/ssl*
+
+13. *OPTIONAL: To change the default ports the applications runs on you can change it in docker-compose.yml*
+
+14. Switch back to the root of the project and start the services using docker-compose:
 
 > `docker-compose up -d`
 
-10. *OPTIONAL: To change the default ports the applications runs on you can change it in docker-compose.yml*
-
-11. Using your browser navigate to your host https://<HOST>:8443 and login using the admin account you created.
+15. Using your browser navigate to your host https://<HOST>:8443 and login using the admin account you created.
   
 ## Features
 * Maintenance Windows
