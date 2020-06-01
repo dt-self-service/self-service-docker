@@ -1,8 +1,8 @@
-# self-service-docker
+# self-service-docker 🐳
 > Standalone docker-compose, app and default configs for deploying self-service-app with nginx and postgres.
 
-## Table of contents
-* [General info](#general-info)
+## Table of Contents 📋
+* [Introduction](#introduction)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Setup](#setup)
@@ -11,18 +11,18 @@
 * [Credit](#credit)
 * [Contact](#contact)
 
-## General info
+## Introduction ℹ
 This repo contains an example configuration that **REQUIRE CHANGES**.
 Please copy the contents of app/config_template to app/config directory. Be sure to go through each config.
 The sections in settings.py that need to be adjust are labelled with #CHANGEME.
 Copy the .env.template files to .envs and update the variable values as needed.
 
-## Screenshots
+## Screenshots 📸
 ![Login](https://github.com/dt-self-service/self-service-app/blob/master/screenshots/login.PNG)
 ![Dashboard](https://github.com/dt-self-service/self-service-app/blob/master/screenshots/dashboard.PNG)
 ![Create Maintenance Window](https://github.com/dt-self-service/self-service-app/blob/master/screenshots/create-mwindow.PNG)
 
-## Technologies
+## Technologies 👨‍💻
 * Python 3.8+
 * Django
 * Docker
@@ -30,7 +30,7 @@ Copy the .env.template files to .envs and update the variable values as needed.
 * Bootstrap
 * PostgreSQL
 
-## Setup
+## Setup 🚀
 > ### Prerequisites:
 >
 > - Docker
@@ -89,9 +89,9 @@ Copy the .env.template files to .envs and update the variable values as needed.
 
 > `docker-compose up -d`
 
-15. Using your browser navigate to your host https://<HOST>:8443 and login using the admin account you created.
+15. Using your browser navigate to your host https://HOST:8443 and login using the admin account you created.
   
-## Features
+## Features 🤖
 * Maintenance Windows
 * Local Authentication
 * SSO
@@ -103,11 +103,11 @@ To-do list:
 * Alerting Profiles
 * Problem Notification Integration
 
-## Status
+## Status 📝
 Project is: _in progress_
 
-## Credit
+## Credit ✨
 Special thanks to Joe Nguyen for developing test cases for this project!
 
-## Contact
+## Contact 🤝
 Created by George Teodorescu and Aaron Philipose - feel free to contact us!
