@@ -3,7 +3,7 @@ services:
   nginx:
     build: ./nginx
     restart: unless-stopped
-    container_name: selfserve_nginx
+    container_name: selfservice_nginx
     ports:
       - "8080:80"
       - "8443:443"
@@ -17,7 +17,7 @@ services:
   web:
     build: ./app
     restart: unless-stopped
-    container_name: selfserve_web
+    container_name: selfservice_web
     user: "2772:2772"
     env_file:
       - ./app/db.env
@@ -34,6 +34,7 @@ services:
   postgres:
     image: postgres
     restart: unless-stopped
+    container_name: selfservice_db
     env_file:
       - ./app/db.env
     expose:
