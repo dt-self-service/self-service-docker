@@ -14,10 +14,10 @@ services:
       - web
     networks:
       - net
-  web:
+  app:
     build: ./app
     restart: unless-stopped
-    container_name: selfservice_web
+    container_name: selfservice_app
     user: "2772:2772"
     env_file:
       - ./app/db.env

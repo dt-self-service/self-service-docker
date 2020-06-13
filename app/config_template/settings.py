@@ -24,14 +24,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+raqb=*g=x%4fr=$i%7yl+ocy@z4tu1x8x6rhz3p2*@v+jztxg' 
-#CHANGEME #TODO AutoGenerate for new app
-# While on Private Repo and pre-release, this is OK but needs to be addressed before first release
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #CHANGEME - if needed
+DEBUG = False
 
-ALLOWED_HOSTS = ['*'] #CHANGEME - list of hostnames
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -87,8 +85,12 @@ WSGI_APPLICATION = 'dynatrace_admin.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_DB', ''),
+        'USER': os.environ.get('POSTGRES_USER', ''),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', ''),
+        'HOST': 'postgres',
+        'PORT': '5432',
     }
 }
 
@@ -137,11 +139,14 @@ STATICFILES_DIRS = [
 SAML_FOLDER = os.path.join(BASE_DIR, 'saml')
 
 STATIC_URL = '/static/'
-
-LOGIN_REDIRECT_URL = '/' 
-EMAIL_HOST = "SMTP URL" #CHANGEME - SMTP Settings
+LOGIN_REDIRECT_URL = '/'
+EMAIL_HOST = "SMTP URL"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "SMTP USER EMAIL"
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD="SMTP USER PASSWORD"
+EMAIL_HOST_PASSWORD = "SMTP USER PASSWORD"
 DEFAULT_FROM_EMAIL = 'TestSite Team <noreply@example.com>'
+
+#This setup will change
+SSO_ADMIN_GROUP = 'selfservice-admin'
+SSO_USER_GROUP = 'selfservice-user'
