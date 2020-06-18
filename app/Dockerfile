@@ -2,7 +2,7 @@ FROM python:alpine
 
 ENV PUID=2772
 
-COPY --chown=django-server:django-server operations/sync_management_zones.sh /operations/sync_management_zones.sh
+COPY operations/sync_management_zones.sh /operations/sync_management_zones.sh
 RUN pip install pipenv &&\
     apk --no-cache add git postgresql-dev gcc python3-dev musl-dev g++ libxslt-dev xmlsec-dev &&\
     adduser django-server --uid $PUID --disabled-password &&\
