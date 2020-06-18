@@ -10,7 +10,7 @@ RUN pip install pipenv &&\
     mkdir /static &&\
     chown -R $PUID:$PUID /opt/self-service &&\
     chown -R $PUID:$PUID /static &&\
-    chmod 755 /operations/sync_management_zones && \
+    chmod 755 /operations/sync_management_zones.sh &&\
     (crontab -l 2>/dev/null; echo "0 * * * * /operations/sync_management_zones.sh") | crontab -
 
 USER django-server
