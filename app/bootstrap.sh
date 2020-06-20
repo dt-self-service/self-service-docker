@@ -27,8 +27,8 @@ cp -r /config/saml/* /opt/self-service/saml/
 
 pipenv run python manage.py makemigrations
 pipenv run python manage.py migrate
-#pipenv run python manage.py collectstatic
+pipenv run python manage.py synczones
 pipenv run python manage.py safesuperuser --username=$DJANGO_SUPERUSER_USERNAME --password=$DJANGO_SUPERUSER_PASSWORD --email=$DJANGO_SUPERUSER_EMAIL
 
-
+crond &&
 pipenv run gunicorn --env DJANGO_SETTINGS_MODULE=dynatrace_admin.settings dynatrace_admin.wsgi --bind 0.0.0.0:8000 --access-logfile -
